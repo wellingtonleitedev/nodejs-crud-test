@@ -23,14 +23,14 @@
 </p>
 
 <p align="center">
-  <a href="#rocket-technologies">
+  <a href="#rocket-tecnologias">
     <img align="center" src="https://img.shields.io/badge/Tecnologias-a5a5a5"/>
   </a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#information_source-how-to-use">
+  <a href="#arrow-down-instalacao">
     <img align="center" src="https://img.shields.io/badge/Instalação-a5a5a5"/>
   </a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#bug-issues">
-    <img align="center" src="https://img.shields.io/badge/Como-Usar-a5a5a5"/>
+  <a href="#information_source-como-usar">
+    <img align="center" src="https://img.shields.io/badge/Como_Usar-a5a5a5"/>
   </a>
 </p>
 

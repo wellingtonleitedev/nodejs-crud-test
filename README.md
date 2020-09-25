@@ -53,9 +53,7 @@ $ cd nodejs-crud-test
 $ cp ormconfig.example.json ormconfig.json
 ```
 
-Depois de copiar o exemplo, certifique-se de que está tudo preenchido corretamente, caso precise rodar em produção, precisa alterar as pastas referentes aos entities e migrations para *"dist"* ao invés de *"src"*.
-
-Exemplo: **"./src/common/.../*.ts"** para **"./dist/common/.../*.ts"**
+Depois de copiar o exemplo, certifique-se de que está tudo preenchido corretamente.
 
 
 ```bash
@@ -66,12 +64,7 @@ $ docker-compose up -d
 $ yarn install
 
 # Run the application
-// Para rodar em ambiente de desenvolvimento
 $ yarn dev:server
-
-// Para rodar em ambiente de produção
-$ yarn build
-$ yarn dev:prod
 ```
 
 ## :information_source: Como Usar

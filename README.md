@@ -42,7 +42,7 @@ Desenvolvido no [VS Code][vc] com [EditorConfig][vceditconfig], [ESLint][vceslin
 
 ## :arrow_down: Instalação 
 
-To clone and run this application, you can use [Git](https://git-scm.com), [Node.js v12.16.0][nodejs] or higher + [Yarn v1.22.0][yarn] or higher, [Docker](https://www.docker.com/) and [React Native environment](https://react-native.rocketseat.dev/) installed on your computer. On your command line:
+Para clonar e rodar este projeto, você vai precisar ter [Git](https://git-scm.com), [Node.js][nodejs] + [Yarn][yarn] ou [npm][npm] e [Docker](https://www.docker.com/) instalado em seu computador. Então, em sua linha de comando:
 
 ```bash
 # Clone this repository
@@ -53,7 +53,10 @@ $ cd nodejs-crud-test
 $ cp ormconfig.example.json ormconfig.json
 ```
 
-Depois de copiar o exemplo, certifique-se de que está tudo preenchido corretamente, caso preciso rodar em produção, precisa alterar as pastar de entities e migrations para *"dist"* ao invés de *"src"*.
+Depois de copiar o exemplo, certifique-se de que está tudo preenchido corretamente, caso precise rodar em produção, precisa alterar as pastas referentes aos entities e migrations para *"dist"* ao invés de *"src"*.
+
+Exemplo: **"./src/common/.../*.ts"** para **"./dist/common/.../*.ts"**
+
 
 ```bash
 # Start Docker
@@ -139,6 +142,7 @@ Feito por Wellington Leite 👨‍💻 [Take a look!](https://www.linkedin.com/i
 [express]: https://expressjs.com/
 [ts]: https://www.typescriptlang.org/
 [yarn]: https://yarnpkg.com/
+[npm]: https://www.npmjs.com/
 [vc]: https://code.visualstudio.com/
 [vceditconfig]: https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig
 [vceslint]: https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint

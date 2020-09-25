@@ -1,4 +1,4 @@
 export default interface CreateSessionDto {
-  email: string;
+  login: string;
   password: string;
 }

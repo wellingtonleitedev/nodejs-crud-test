@@ -16,7 +16,9 @@ export default class UpdateUserService {
     id,
     name,
     email,
+    old_password,
     password,
+    password_confirmation,
   }: UpdateUserDto): Promise<User> {
     const user = await this.usersRepository.getById(id);
 
@@ -24,17 +26,39 @@ export default class UpdateUserService {
       throw new AppError('User not found');
     }
 
-    const hasEmail = await this.usersRepository.getByEmail(email);
+    const userWithSameEmail = await this.usersRepository.getByEmail(email);
 
-    if (hasEmail) {
+    if (userWithSameEmail && userWithSameEmail.id !== user.id) {
       throw new AppError('Already exist a user with the same e-mail address');
     }
 
-    const hashedPassword = await this.hashProvider.generate(password);
-
     user.name = name;
-    user.email = name;
-    user.password = hashedPassword;
+    user.email = email;
+
+    if (password && !old_password) {
+      throw new AppError(
+        'You need inform a old password to set a new password',
+      );
+    }
+
+    if (password && old_password) {
+      const checkOldPassword = await this.hashProvider.compare(
+        old_password,
+        user.password,
+      );
+
+      if (!checkOldPassword) {
+        throw new AppError("Old password doesn't match");
+      }
+
+      if (password !== password_confirmation) {
+        throw new AppError("password and password confirmation doesn't match");
+      }
+
+      user.password = await this.hashProvider.generate(password);
+    }
+
+    await this.usersRepository.save(user);
 
     return user;
   }

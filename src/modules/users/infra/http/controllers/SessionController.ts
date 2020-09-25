@@ -5,11 +5,11 @@ import { container } from 'tsyringe';
 
 export default class UsersController {
   public async create(request: Request, response: Response): Promise<Response> {
-    const { email, password } = request.body;
+    const { login, password } = request.body;
 
     const authenticateService = container.resolve(AuthenticateService);
 
-    const user = await authenticateService.execute({ email, password });
+    const user = await authenticateService.execute({ login, password });
 
     return response.json(classToClass(user));
   }

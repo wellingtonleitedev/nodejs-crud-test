@@ -13,6 +13,7 @@ export default class CreateUserService {
   ) {}
 
   public async execute({
+    login,
     name,
     email,
     password,
@@ -23,9 +24,16 @@ export default class CreateUserService {
       throw new AppError('Already exist a user with the same e-mail address');
     }
 
+    const hasLogin = await this.usersRepository.getByLogin(login);
+
+    if (hasLogin) {
+      throw new AppError('Already exist a user with the same login');
+    }
+
     const hashedPassword = await this.hashProvider.generate(password);
 
     const user = this.usersRepository.create({
+      login,
       name,
       email,
       password: hashedPassword,

@@ -1,6 +1,6 @@
 export default {
   jwt: {
-    secret: 'crudtest',
+    secret: 'crudtestapplication',
     expiresIn: '1d',
   },
 };

@@ -15,22 +15,25 @@ export default class AuthenticateService {
   ) {}
 
   public async execute({
-    email,
+    login,
     password,
   }: CreateSessionDto): Promise<AuthenticatedDto> {
-    const user = await this.usersRepository.getByEmail(email);
+    const user = await this.usersRepository.getByLogin(login);
 
     if (!user) {
       throw new AppError('e-mail/password incorrect');
     }
 
-    const correctPassword = this.hashProvider.compare(password, user.password);
+    const correctPassword = await this.hashProvider.compare(
+      password,
+      user.password,
+    );
 
     if (!correctPassword) {
       throw new AppError('e-mail/password incorrect');
     }
 
-    const token = sign({}, auth.jwt.secret, {
+    const token = sign({ master: user.admin }, auth.jwt.secret, {
       subject: user.id,
       expiresIn: auth.jwt.expiresIn,
     });

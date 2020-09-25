@@ -32,8 +32,23 @@ export default class UsersRepository implements IUsersRepository {
     return user;
   }
 
-  public async create({ name, email, password }: CreateUserDto): Promise<User> {
-    const user = this.entities.create({ name, email, password });
+  public async getByLogin(login: string): Promise<User | undefined> {
+    const user = await this.entities.findOne({
+      where: {
+        login,
+      },
+    });
+
+    return user;
+  }
+
+  public async create({
+    login,
+    name,
+    email,
+    password,
+  }: CreateUserDto): Promise<User> {
+    const user = this.entities.create({ login, name, email, password });
 
     await this.entities.save(user);
 

@@ -8,11 +8,15 @@ export default class DeleteUserService {
     @inject('UsersRepository') private usersRepository: IUsersRepository,
   ) {}
 
-  public async execute(id: string): Promise<void> {
+  public async execute(id: string, sessionUserId: string): Promise<void> {
     const user = await this.usersRepository.getById(id);
 
     if (!user) {
       throw new AppError('User not found');
+    }
+
+    if (user.id === sessionUserId) {
+      throw new AppError("You can't delete yourself");
     }
 
     await this.usersRepository.delete(user);

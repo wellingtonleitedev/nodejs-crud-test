@@ -13,6 +13,9 @@ export default class User {
   id: string;
 
   @Column()
+  login: string;
+
+  @Column()
   name: string;
 
   @Column()
@@ -21,6 +24,9 @@ export default class User {
   @Column()
   @Exclude()
   password: string;
+
+  @Column('boolean')
+  admin: boolean;
 
   @CreateDateColumn()
   created_at: Date;

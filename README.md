@@ -71,9 +71,12 @@ $ yarn dev:server
 
 A aplicação roda por padrão na porta 3333, portanto a url seria http://localhost:3333
 
-Usuário administrador criado para controle da aplicação: 
+Usuário administrador criado para controle da aplicação:
+
+```bash
 Login: johndoe
 Senha: 123456
+```
 
 - > Autenticação
 ```bash

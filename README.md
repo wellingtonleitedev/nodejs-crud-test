@@ -63,6 +63,9 @@ $ docker-compose up -d
 # Install dependencies
 $ yarn install
 
+# Run migrations
+$ yarn typeorm migration:run
+
 # Run the application
 $ yarn dev:server
 ```
